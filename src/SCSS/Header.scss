@@ -2,12 +2,15 @@
 
 .header-wrapper {
   background-color: var(--color-bg, #141414);
+  height: 120px;
+  display: flex;
   position: sticky;
   top: 0;
 }
 
 .header {
   display: flex;
+  flex-grow: 1;
   justify-content: space-between;
   align-items: center;
   max-width: 1600px;

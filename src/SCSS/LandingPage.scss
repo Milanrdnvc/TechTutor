@@ -1,0 +1,35 @@
+.landing-page {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+
+  &__text {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__pointer {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: animate-pointer 500ms ease-in-out infinite alternate;
+  }
+
+  &__pointer-img {
+    width: 100px;
+  }
+}
+
+@keyframes animate-pointer {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-5px);
+  }
+}
