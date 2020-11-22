@@ -11,8 +11,8 @@ function Header() {
   const dropdown = useRef(null);
 
   return (
-    <header className="header">
-      <div className="header__wrapper">
+    <div className="header-wrapper">
+      <header className="header">
         <img className="header__logo" src={logo} alt="logo" />
         <ul className="header__links" ref={dropdown}>
           <li className="header__link">
@@ -39,8 +39,8 @@ function Header() {
           <div className="header__burger-line"></div>
           <div className="header__burger-line"></div>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
   );
 }
 

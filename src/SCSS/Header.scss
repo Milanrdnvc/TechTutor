@@ -1,18 +1,18 @@
 @import './config';
 
-.header {
+.header-wrapper {
   background-color: var(--color-bg, #141414);
   position: sticky;
   top: 0;
+}
 
-  &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1600px;
-    margin: auto;
-    padding: 1rem;
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1600px;
+  margin: auto;
+  padding: 1rem;
 
   &__logo {
     width: 7.5rem;

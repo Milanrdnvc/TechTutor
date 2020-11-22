@@ -1,0 +1,19 @@
+.footer-wrapper {
+  background-color: var(--color-bg, #141414);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-width: 1600px;
+  margin: auto;
+
+  &__copyright {
+    text-align: center;
+  }
+
+  &__contact {
+    text-align: center;
+  }
+}
