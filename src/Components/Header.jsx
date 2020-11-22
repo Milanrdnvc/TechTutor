@@ -34,6 +34,10 @@ function Header() {
         <div
           className="header__burger"
           onClick={() => toggleDropdown(dropdown.current)}
+          onTouchEnd={e => {
+            e.preventDefault();
+            toggleDropdown(dropdown.current);
+          }}
         >
           <div className="header__burger-line"></div>
           <div className="header__burger-line"></div>

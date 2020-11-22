@@ -1,0 +1,62 @@
+@import 'config';
+
+.general-info {
+  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__text {
+    text-align: center;
+  }
+
+  &__desc {
+    background-color: #0a0a0a;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+}
+
+// SVG Animation
+
+/* --------------- */
+
+#ruka-mahanje {
+  animation-name: mahanje-ruke;
+  animation-iteration-count: infinite;
+  animation-duration: 2.5s;
+  transform-origin: 70% 70%;
+}
+
+svg {
+  overflow: visible;
+}
+
+@keyframes mahanje-ruke {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(4deg);
+  }
+
+  40% {
+    transform: rotate(-2deg);
+  }
+
+  60% {
+    transform: rotate(4deg);
+  }
+
+  80% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* --------------- */
