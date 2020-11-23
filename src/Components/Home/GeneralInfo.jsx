@@ -1,15 +1,14 @@
 import '../../CSS/GeneralInfo.css';
-import test from '../../Pictures/mascot-waving.svg';
 
-function GeneralInfo({ title, desc }) {
+function GeneralInfo({ title, desc, img, png }) {
   return (
-    <div className="general-info">
+    <div className="general-info" data-png={png}>
       <div className="general-info__text">
         <h2 className="general-info__title">{title}</h2>
         <p className="general-info__desc">{desc}</p>
       </div>
       <img
-        src={test}
+        src={img}
         alt="mascot picture"
         className="general-info__mascot-picture"
       />
