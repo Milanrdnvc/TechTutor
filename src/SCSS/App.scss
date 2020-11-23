@@ -42,4 +42,11 @@ p {
   font-size: var(--font-medium, 1rem);
   color: var(--color-secondary, #9c9f9c);
   font-family: var(--font-secondary, 'sans-serif');
+  margin: 2rem 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.para-animate {
+  transform: scale(1.05);
+  box-shadow: 5px 20px 30px black;
 }
