@@ -9,7 +9,10 @@ function Home() {
   return (
     <div className="home-wrapper">
       <main className="home">
-        <LandingPage />
+        <LandingPage
+          title="TECHTUTOR"
+          quote="Sastavljanje računara ne mora da bude komplikovano..."
+        />
         <GeneralInfo
           title={data.generalInfo.sitePurpose.title}
           desc={data.generalInfo.sitePurpose.desc}

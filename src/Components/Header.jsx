@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import '../CSS/Header.css';
 
 function toggleDropdown(dropdown) {
+  document.body.addEventListener('click', e => {
+    if (!e.target.classList.contains('header__burger'))
+      toggleDropdown(dropdown);
+  });
   dropdown.classList.toggle('dropdown-active');
 }
 
@@ -13,13 +17,15 @@ function Header() {
   return (
     <div className="header-wrapper">
       <header className="header">
-        <img className="header__logo" src={logo} alt="logo" />
+        <Link to="/">
+          <img className="header__logo" src={logo} alt="logo" />
+        </Link>
         <ul className="header__links" ref={dropdown}>
           <li className="header__link">
-            <Link to="#">Početna</Link>
+            <Link to="/">Početna</Link>
           </li>
           <li className="header__link">
-            <Link to="#">Desktopovi</Link>
+            <Link to="/desktops">Desktopovi</Link>
           </li>
           <li className="header__link">
             <Link to="#">Laptopovi</Link>
@@ -33,7 +39,7 @@ function Header() {
         </ul>
         <div
           className="header__burger"
-          onClick={() => toggleDropdown(dropdown.current)}
+          onClick={e => toggleDropdown(dropdown.current)}
           onTouchEnd={e => {
             e.preventDefault();
             toggleDropdown(dropdown.current);

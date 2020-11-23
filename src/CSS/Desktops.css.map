@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,AAAC,CACR,SAAS,CAAE,MAAM,CACjB,MAAM,CAAE,IAAI,CACZ,OAAO,CAAE,IAAI,CACd",
+    "sources": [
+        "../SCSS/Desktops.scss"
+    ],
+    "names": [],
+    "file": "Desktops.css"
+}

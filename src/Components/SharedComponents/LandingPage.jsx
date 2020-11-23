@@ -1,15 +1,25 @@
 import pointer from '../../Pictures/pointer.png';
 import '../../CSS/LandingPage.css';
 
-function LandingPage() {
+function LandingPage({ title, quote }) {
+  if (title === 'TECHTUTOR') {
+    function createTitle() {
+      return (
+        <>
+          TECH
+          <br />
+          TUTOR
+        </>
+      );
+    }
+    title = createTitle();
+  }
+
   return (
     <div className="landing-page">
       <div className="landing-page__text">
-        <h1>Sample Text</h1>
-        <h3>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore,
-          consequatur.
-        </h3>
+        <h1>{title}</h1>
+        <h3>{quote}</h3>
       </div>
       <div className="landing-page__pointer">
         <h4 className="landing-page__pointer-text">Istraži</h4>
