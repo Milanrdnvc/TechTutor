@@ -4,10 +4,19 @@ import { Link } from 'react-router-dom';
 import '../CSS/Header.css';
 
 function toggleDropdown(dropdown) {
-  document.body.addEventListener('click', e => {
-    if (!e.target.classList.contains('header__burger'))
-      toggleDropdown(dropdown);
-  });
+  if (!document.body.onclick) {
+    console.log('hello');
+    function toggleDropdown(e) {
+      if (
+        !e.target.classList.contains('header__burger') &&
+        dropdown.classList.contains('dropdown-active')
+      ) {
+        dropdown.classList.remove('dropdown-active');
+      }
+    }
+    document.body.onclick = toggleDropdown;
+    document.body.ontouchend = toggleDropdown;
+  }
   dropdown.classList.toggle('dropdown-active');
 }
 
