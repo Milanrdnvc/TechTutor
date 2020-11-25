@@ -3,16 +3,13 @@ import '../../CSS/LandingPage.css';
 
 function LandingPage({ title, quote }) {
   if (title === 'TECHTUTOR') {
-    function createTitle() {
-      return (
-        <>
-          TECH
-          <br />
-          TUTOR
-        </>
-      );
-    }
-    title = createTitle();
+    title = (
+      <>
+        TECH
+        <br />
+        TUTOR
+      </>
+    );
   }
 
   return (

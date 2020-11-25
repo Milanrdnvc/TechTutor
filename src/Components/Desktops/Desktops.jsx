@@ -1,4 +1,5 @@
 import LandingPage from '../SharedComponents/LandingPage';
+import Configuration from '../SharedComponents/Configuration';
 import '../../CSS/Desktops.css';
 
 function Desktops() {
@@ -9,6 +10,8 @@ function Desktops() {
           title="DESKTOPOVI"
           quote="Želite da sastavite svoj novi računar? Došli ste na pravo mesto!"
         />
+        <Configuration />
+        <Configuration />
       </main>
     </div>
   );

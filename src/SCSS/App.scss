@@ -25,6 +25,7 @@ h1 {
 
 h2 {
   font-size: var(--font-large, 2rem);
+  text-align: center;
 }
 
 h3 {
@@ -44,11 +45,10 @@ p {
   font-family: var(--font-secondary, 'sans-serif');
   margin: 2rem 0;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.para-animate {
-  transform: scale(1.05);
-  box-shadow: 5px 20px 30px black;
+  text-align: center;
+  background-color: #0a0a0a;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 a {
@@ -60,4 +60,25 @@ a {
   &:hover {
     color: var(--color-primary, #54de62);
   }
+}
+
+.para-animate {
+  transform: scale(1.05);
+  box-shadow: 5px 20px 30px black;
+}
+
+.btn-primary {
+  font-family: var(--font-primary, 'sans-serif');
+  background-color: transparent;
+  color: var(--color-primary, #54de62);
+  border: 2px solid var(--color-primary, #54de62);
+  padding: 0.375rem 1.33rem;
+  font-size: var(--font-medium, 1rem);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  color: black;
+  background-color: var(--color-primary);
 }

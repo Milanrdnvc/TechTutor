@@ -1,23 +1,13 @@
 import { useRef } from 'react';
+import { animatePara } from '../../helpers';
 import '../../CSS/GeneralInfo.css';
 
 function GeneralInfo({ title, desc, img, png }) {
   const para = useRef(null);
 
-  function animatePara() {
-    const windowHeight = window.innerHeight;
-
-    if (para.current) {
-      const paraPos = para.current.getBoundingClientRect().top;
-
-      if (paraPos <= windowHeight / 1.8 && paraPos >= 50) {
-        para.current.classList.add('para-animate');
-      }
-    }
-  }
-
-  animatePara();
-  window.addEventListener('scroll', animatePara);
+  window.addEventListener('scroll', () => {
+    if (para.current) animatePara(para.current);
+  });
 
   return (
     <div className="general-info" data-png={png}>

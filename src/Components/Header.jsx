@@ -5,7 +5,6 @@ import '../CSS/Header.css';
 
 function toggleDropdown(dropdown) {
   if (!document.body.onclick) {
-    console.log('hello');
     function toggleDropdown(e) {
       if (
         !e.target.classList.contains('header__burger') &&
@@ -48,7 +47,7 @@ function Header() {
         </ul>
         <div
           className="header__burger"
-          onClick={e => toggleDropdown(dropdown.current)}
+          onClick={() => toggleDropdown(dropdown.current)}
           onTouchEnd={e => {
             e.preventDefault();
             toggleDropdown(dropdown.current);
