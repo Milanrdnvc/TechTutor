@@ -44,7 +44,7 @@ p {
   color: var(--color-secondary, #9c9f9c);
   font-family: var(--font-secondary, 'sans-serif');
   margin: 2rem 0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   text-align: center;
   background-color: #0a0a0a;
   padding: 1rem;
@@ -75,7 +75,7 @@ a {
   padding: 0.375rem 1.33rem;
   font-size: var(--font-medium, 1rem);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn-primary:hover {

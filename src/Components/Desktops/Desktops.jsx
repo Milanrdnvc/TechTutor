@@ -1,5 +1,5 @@
 import LandingPage from '../SharedComponents/LandingPage';
-import Configuration from '../SharedComponents/Configuration';
+import Configuration from '../SharedComponents/Configuration/Configuration';
 import '../../CSS/Desktops.css';
 
 function Desktops() {
@@ -10,8 +10,9 @@ function Desktops() {
           title="DESKTOPOVI"
           quote="Želite da sastavite svoj novi računar? Došli ste na pravo mesto!"
         />
-        <Configuration />
-        <Configuration />
+        <Configuration img={require('../../Pictures/conf-pic1.png')} />
+        <Configuration img={require('../../Pictures/conf-pic2.png')} />
+        <Configuration img={require('../../Pictures/conf-pic3.png')} />
       </main>
     </div>
   );
