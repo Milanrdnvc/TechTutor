@@ -1,13 +1,15 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { animatePara } from '../../helpers';
 import '../../CSS/GeneralInfo.css';
 
 function GeneralInfo({ title, desc, img, png }) {
   const para = useRef(null);
 
-  window.addEventListener('scroll', () => {
-    if (para.current) animatePara(para.current);
-  });
+  useEffect(() => {
+    const handleAnimatePara = () => animatePara(para.current);
+    window.addEventListener('scroll', handleAnimatePara);
+    return () => window.removeEventListener('scroll', handleAnimatePara);
+  }, []);
 
   return (
     <div className="general-info" data-png={png}>

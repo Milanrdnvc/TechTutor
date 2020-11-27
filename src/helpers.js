@@ -1,4 +1,7 @@
 export function animatePara(para) {
+  if (!para) {
+    return;
+  }
   const windowHeight = window.innerHeight;
   const paraPos = para.getBoundingClientRect().top;
 

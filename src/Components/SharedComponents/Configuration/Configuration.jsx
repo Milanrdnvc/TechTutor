@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { animatePara } from '../../../helpers';
 import test from '../../../Pictures/gejmerski2.png';
 import '../../../CSS/Configuration.css';
@@ -18,23 +18,25 @@ for (let i = 0; i < 5; i++) {
   );
 }
 
+function toggleImageCarousel(imageCarousel, para) {
+  if (!para.classList.contains('para-hide')) {
+    para.classList.add('para-hide');
+    imageCarousel.classList.add('image-carousel-show');
+  } else {
+    para.classList.remove('para-hide');
+    imageCarousel.classList.remove('image-carousel-show');
+  }
+}
+
 function Configuration({ img }) {
   const para = useRef(null);
   const imageCarousel = useRef(null);
 
-  function toggleImageCarousel() {
-    if (!para.current.classList.contains('para-hide')) {
-      para.current.classList.add('para-hide');
-      imageCarousel.current.classList.add('image-carousel-show');
-    } else {
-      para.current.classList.remove('para-hide');
-      imageCarousel.current.classList.remove('image-carousel-show');
-    }
-  }
-
-  window.addEventListener('scroll', () => {
-    if (para.current) animatePara(para.current);
-  });
+  useEffect(() => {
+    const handleAnimatePara = () => animatePara(para.current);
+    window.addEventListener('scroll', handleAnimatePara);
+    return () => window.removeEventListener('scroll', handleAnimatePara);
+  }, []);
 
   return (
     <div
@@ -53,8 +55,11 @@ function Configuration({ img }) {
       </div>
       <button
         className="configuration__btn btn-primary"
-        onClick={toggleImageCarousel}
-        onTouchEnd={toggleImageCarousel}
+        onClick={() => toggleImageCarousel(imageCarousel.current, para.current)}
+        onTouchEnd={e => {
+          e.preventDefault();
+          toggleImageCarousel(imageCarousel.current, para.current);
+        }}
       >
         Pogledajte Konfiguracije
       </button>
