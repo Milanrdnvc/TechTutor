@@ -15,6 +15,7 @@ for (let i = 0; i < 5; i++) {
       className="configuration__image"
       key={i}
       alt="configuration"
+      onClick={() => console.log(i)}
     >
       <span>2000$</span>
     </div>
@@ -33,25 +34,24 @@ function toggleImageCarousel(imageCarousel, para, arrows) {
   }
 }
 
-let counter = 0;
 let transitionEnd = true;
 
-function handleSlideLeft(imageCarousel) {
+function handleSlideLeft(imageCarousel, counter) {
   if (!transitionEnd) return;
   const numOfImages = imageCarousel.querySelectorAll('div').length;
   if (Math.abs(counter) >= numOfImages - 1) return;
-  counter++;
+  counter[0]++;
   transitionEnd = false;
   imageCarousel.style.transform = `translateX(${
     counter * -100
   }%) translateY(-50%)`;
 }
 
-function handleSlideRight(imageCarousel) {
+function handleSlideRight(imageCarousel, counter) {
   if (!transitionEnd) return;
   const numOfImages = imageCarousel.querySelectorAll('div').length;
   if (counter <= 0) return;
-  counter--;
+  counter[0]--;
   if (counter <= numOfImages) {
     transitionEnd = false;
     imageCarousel.style.transform = `translateX(${
@@ -64,6 +64,7 @@ function Configuration({ img }) {
   const para = useRef(null);
   const imageCarousel = useRef(null);
   const arrows = useRef([React.createRef(), React.createRef()]);
+  let counter = [0];
 
   useEffect(() => {
     const handleAnimatePara = () => animatePara(para.current);
@@ -89,10 +90,10 @@ function Configuration({ img }) {
         className="configuration__arrow-left"
         width="50px"
         height="50px"
-        onClick={() => handleSlideLeft(imageCarousel.current)}
+        onClick={() => handleSlideLeft(imageCarousel.current, counter)}
         onTouchEnd={e => {
           e.preventDefault();
-          handleSlideLeft(imageCarousel.current);
+          handleSlideLeft(imageCarousel.current, counter);
         }}
         alt="left arrow"
         ref={arrows.current[0]}
@@ -102,10 +103,10 @@ function Configuration({ img }) {
         className="configuration__arrow-right"
         width="50px"
         height="50px"
-        onClick={() => handleSlideRight(imageCarousel.current)}
+        onClick={() => handleSlideRight(imageCarousel.current, counter)}
         onTouchEnd={e => {
           e.preventDefault();
-          handleSlideRight(imageCarousel.current);
+          handleSlideRight(imageCarousel.current, counter);
         }}
         alt="right arrow"
         ref={arrows.current[1]}
