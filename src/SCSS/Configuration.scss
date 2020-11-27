@@ -9,6 +9,7 @@
   background-size: cover;
   background-attachment: fixed;
   position: relative;
+  // overflow: hidden;
 
   &__btn {
     margin-top: 1.34rem;
@@ -38,16 +39,31 @@
     right: 0;
     bottom: 0;
     transform: translateY(-50%);
-    overflow: hidden;
+    // overflow: hidden;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease;
+  }
+
+  &__arrow-left,
+  &__arrow-right {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+  }
+
+  &__arrow-left {
+    transform: rotate(180deg);
+  }
+
+  &__arrow-right {
+    right: 0;
   }
 }
 
 .para-hide {
   opacity: 0;
-  pointer-events: 0;
+  pointer-events: none;
 }
 
 .image-carousel-show {

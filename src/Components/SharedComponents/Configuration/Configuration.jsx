@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { animatePara } from '../../../helpers';
 import test from '../../../Pictures/gejmerski2.png';
+import arrow from '../../../Pictures/arrow.png';
 import '../../../CSS/Configuration.css';
 
 const images = [];
@@ -28,6 +29,30 @@ function toggleImageCarousel(imageCarousel, para) {
   }
 }
 
+let counter = 0;
+function handleSlideLeft(imageCarousel) {
+  const numOfImages = Array.from(imageCarousel.querySelectorAll('div')).length;
+  if (Math.abs(counter) >= numOfImages - 1) return;
+  counter++;
+  imageCarousel.style.transition = 'all 0.5s ease';
+  imageCarousel.style.transform = `translateX(${
+    counter * -100
+  }%) translateY(-50%)`;
+}
+
+function handleSlideRight(imageCarousel) {
+  console.log(counter);
+  const numOfImages = Array.from(imageCarousel.querySelectorAll('div')).length;
+  if (counter <= 0) return;
+  counter--;
+  if (counter <= numOfImages) {
+    imageCarousel.style.transition = 'all 0.5s ease';
+    imageCarousel.style.transform = `translateX(${
+      counter * -100
+    }%) translateY(-50%)`;
+  }
+}
+
 function Configuration({ img }) {
   const para = useRef(null);
   const imageCarousel = useRef(null);
@@ -50,6 +75,21 @@ function Configuration({ img }) {
         voluptatum rem quae sunt a neque, aliquam, accusamus esse consectetur
         aliquid.
       </p>
+
+      <img
+        src={arrow}
+        className="configuration__arrow-left"
+        width="50px"
+        height="50px"
+        onClick={() => handleSlideLeft(imageCarousel.current)}
+      />
+      <img
+        src={arrow}
+        className="configuration__arrow-right"
+        width="50px"
+        height="50px"
+        onClick={() => handleSlideRight(imageCarousel.current)}
+      />
       <div className="configuration__image-carousel" ref={imageCarousel}>
         {images}
       </div>
