@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { animatePara } from '../../../helpers';
 import test from '../../../Pictures/gejmerski2.png';
 import arrow from '../../../Pictures/arrow.png';
@@ -19,34 +19,34 @@ for (let i = 0; i < 5; i++) {
   );
 }
 
-function toggleImageCarousel(imageCarousel, para) {
+function toggleImageCarousel(imageCarousel, para, arrows) {
   if (!para.classList.contains('para-hide')) {
     para.classList.add('para-hide');
     imageCarousel.classList.add('image-carousel-show');
+    arrows.forEach(arrow => arrow.current.classList.add('arrows-show'));
   } else {
     para.classList.remove('para-hide');
     imageCarousel.classList.remove('image-carousel-show');
+    arrows.forEach(arrow => arrow.current.classList.remove('arrows-show'));
   }
 }
 
 let counter = 0;
+
 function handleSlideLeft(imageCarousel) {
-  const numOfImages = Array.from(imageCarousel.querySelectorAll('div')).length;
+  const numOfImages = imageCarousel.querySelectorAll('div').length;
   if (Math.abs(counter) >= numOfImages - 1) return;
   counter++;
-  imageCarousel.style.transition = 'all 0.5s ease';
   imageCarousel.style.transform = `translateX(${
     counter * -100
   }%) translateY(-50%)`;
 }
 
 function handleSlideRight(imageCarousel) {
-  console.log(counter);
-  const numOfImages = Array.from(imageCarousel.querySelectorAll('div')).length;
+  const numOfImages = imageCarousel.querySelectorAll('div').length;
   if (counter <= 0) return;
   counter--;
   if (counter <= numOfImages) {
-    imageCarousel.style.transition = 'all 0.5s ease';
     imageCarousel.style.transform = `translateX(${
       counter * -100
     }%) translateY(-50%)`;
@@ -56,6 +56,9 @@ function handleSlideRight(imageCarousel) {
 function Configuration({ img }) {
   const para = useRef(null);
   const imageCarousel = useRef(null);
+  const arrows = useRef([]);
+
+  arrows.current = [0, 0].map(() => React.createRef());
 
   useEffect(() => {
     const handleAnimatePara = () => animatePara(para.current);
@@ -82,6 +85,8 @@ function Configuration({ img }) {
         width="50px"
         height="50px"
         onClick={() => handleSlideLeft(imageCarousel.current)}
+        alt="left arrow"
+        ref={arrows.current[0]}
       />
       <img
         src={arrow}
@@ -89,16 +94,28 @@ function Configuration({ img }) {
         width="50px"
         height="50px"
         onClick={() => handleSlideRight(imageCarousel.current)}
+        alt="right arrow"
+        ref={arrows.current[1]}
       />
       <div className="configuration__image-carousel" ref={imageCarousel}>
         {images}
       </div>
       <button
         className="configuration__btn btn-primary"
-        onClick={() => toggleImageCarousel(imageCarousel.current, para.current)}
+        onClick={() =>
+          toggleImageCarousel(
+            imageCarousel.current,
+            para.current,
+            arrows.current
+          )
+        }
         onTouchEnd={e => {
           e.preventDefault();
-          toggleImageCarousel(imageCarousel.current, para.current);
+          toggleImageCarousel(
+            imageCarousel.current,
+            para.current,
+            arrows.current
+          );
         }}
       >
         Pogledajte Konfiguracije

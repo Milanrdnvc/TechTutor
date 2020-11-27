@@ -9,7 +9,7 @@
   background-size: cover;
   background-attachment: fixed;
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
 
   &__btn {
     margin-top: 1.34rem;
@@ -25,6 +25,7 @@
     right: 0;
     bottom: 0;
     top: 0;
+    z-index: 2;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -42,7 +43,7 @@
     // overflow: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.3s ease;
   }
 
   &__arrow-left,
@@ -50,10 +51,14 @@
     position: absolute;
     top: 50%;
     z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
   }
 
   &__arrow-left {
     transform: rotate(180deg);
+    left: 0;
   }
 
   &__arrow-right {
@@ -67,6 +72,11 @@
 }
 
 .image-carousel-show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.arrows-show {
   opacity: 1;
   pointer-events: all;
 }
