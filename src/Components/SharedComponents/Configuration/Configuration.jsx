@@ -15,7 +15,9 @@ for (let i = 0; i < 5; i++) {
       className="configuration__image"
       key={i}
       alt="configuration"
-    />
+    >
+      <span>2000$</span>
+    </div>
   );
 }
 
@@ -32,21 +34,26 @@ function toggleImageCarousel(imageCarousel, para, arrows) {
 }
 
 let counter = 0;
+let transitionEnd = true;
 
 function handleSlideLeft(imageCarousel) {
+  if (!transitionEnd) return;
   const numOfImages = imageCarousel.querySelectorAll('div').length;
   if (Math.abs(counter) >= numOfImages - 1) return;
   counter++;
+  transitionEnd = false;
   imageCarousel.style.transform = `translateX(${
     counter * -100
   }%) translateY(-50%)`;
 }
 
 function handleSlideRight(imageCarousel) {
+  if (!transitionEnd) return;
   const numOfImages = imageCarousel.querySelectorAll('div').length;
   if (counter <= 0) return;
   counter--;
   if (counter <= numOfImages) {
+    transitionEnd = false;
     imageCarousel.style.transform = `translateX(${
       counter * -100
     }%) translateY(-50%)`;
@@ -56,9 +63,7 @@ function handleSlideRight(imageCarousel) {
 function Configuration({ img }) {
   const para = useRef(null);
   const imageCarousel = useRef(null);
-  const arrows = useRef([]);
-
-  arrows.current = [0, 0].map(() => React.createRef());
+  const arrows = useRef([React.createRef(), React.createRef()]);
 
   useEffect(() => {
     const handleAnimatePara = () => animatePara(para.current);
@@ -85,6 +90,10 @@ function Configuration({ img }) {
         width="50px"
         height="50px"
         onClick={() => handleSlideLeft(imageCarousel.current)}
+        onTouchEnd={e => {
+          e.preventDefault();
+          handleSlideLeft(imageCarousel.current);
+        }}
         alt="left arrow"
         ref={arrows.current[0]}
       />
@@ -94,10 +103,18 @@ function Configuration({ img }) {
         width="50px"
         height="50px"
         onClick={() => handleSlideRight(imageCarousel.current)}
+        onTouchEnd={e => {
+          e.preventDefault();
+          handleSlideRight(imageCarousel.current);
+        }}
         alt="right arrow"
         ref={arrows.current[1]}
       />
-      <div className="configuration__image-carousel" ref={imageCarousel}>
+      <div
+        className="configuration__image-carousel"
+        ref={imageCarousel}
+        onTransitionEnd={() => (transitionEnd = true)}
+      >
         {images}
       </div>
       <button

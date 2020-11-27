@@ -1,3 +1,5 @@
+@import 'config';
+
 .configuration {
   min-height: 100vh;
   display: flex;
@@ -26,10 +28,20 @@
     bottom: 0;
     top: 0;
     z-index: 2;
+    font-size: 3rem;
+    color: var(--color-primary, #54de62);
+    font-family: var(--font-primary, 'sans-serif');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
+
+    span {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   &__image-carousel {
@@ -40,7 +52,6 @@
     right: 0;
     bottom: 0;
     transform: translateY(-50%);
-    // overflow: hidden;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease, transform 0.3s ease;
