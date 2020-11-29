@@ -75,7 +75,7 @@ a {
   padding: 0.375rem 1.33rem;
   font-size: var(--font-medium, 1rem);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .btn-primary:hover {

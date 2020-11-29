@@ -20,7 +20,11 @@ function LandingPage({ title, quote }) {
       </div>
       <div className="landing-page__pointer">
         <h4 className="landing-page__pointer-text">Istraži</h4>
-        <img src={pointer} alt="" className="landing-page__pointer-img" />
+        <img
+          src={pointer}
+          alt="pokazivac na dole"
+          className="landing-page__pointer-img"
+        />
       </div>
     </div>
   );

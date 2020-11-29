@@ -36,9 +36,9 @@ function toggleImageCarousel(imageCarousel, para, arrows) {
 
 let transitionEnd = true;
 
-function handleSlideLeft(imageCarousel, counter) {
-  if (!transitionEnd) return;
+function handleSlideRight(imageCarousel, counter) {
   const numOfImages = imageCarousel.querySelectorAll('div').length;
+  if (!transitionEnd) return;
   if (Math.abs(counter) >= numOfImages - 1) return;
   counter[0]++;
   transitionEnd = false;
@@ -47,9 +47,9 @@ function handleSlideLeft(imageCarousel, counter) {
   }%) translateY(-50%)`;
 }
 
-function handleSlideRight(imageCarousel, counter) {
-  if (!transitionEnd) return;
+function handleSlideLeft(imageCarousel, counter) {
   const numOfImages = imageCarousel.querySelectorAll('div').length;
+  if (!transitionEnd) return;
   if (counter <= 0) return;
   counter[0]--;
   if (counter <= numOfImages) {
@@ -64,7 +64,7 @@ function Configuration({ img }) {
   const para = useRef(null);
   const imageCarousel = useRef(null);
   const arrows = useRef([React.createRef(), React.createRef()]);
-  let counter = [0];
+  const counter = [0];
 
   useEffect(() => {
     const handleAnimatePara = () => animatePara(para.current);
