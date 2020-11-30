@@ -8,7 +8,8 @@ function CfgTable() {
         <img
           src={mascotSitting}
           alt="mascot sitting"
-          width="150px"
+          width="150vw"
+          height="150vh"
           className="cfg-table__mascot-img"
         />
         <div className="cfg-table__grid-header">Komponenta</div>
