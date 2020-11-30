@@ -42,7 +42,7 @@ function Header() {
             <Link to="#">Telefoni</Link>
           </li>
           <li className="header__link">
-            <Link to="#">Kontakt</Link>
+            <Link to="/contact">Kontakt</Link>
           </li>
         </ul>
         <div

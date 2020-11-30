@@ -1,0 +1,26 @@
+@import 'config';
+
+.contact-wrapper {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact {
+  max-width: 1600px;
+  margin: auto;
+  padding: 1rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__email,
+  &__message {
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+    font-size: var(--font-medium, 1rem);
+    font-family: var(--font-secondary, 'sans-serif');
+  }
+}

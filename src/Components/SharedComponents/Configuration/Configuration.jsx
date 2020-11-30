@@ -6,7 +6,7 @@ import '../../../CSS/Configuration.css';
 
 const images = [];
 for (let i = 0; i < 5; i++) {
-  images.push(
+  const cfgImg = (
     <div
       style={{
         backgroundImage: `url(${test})`,
@@ -20,6 +20,7 @@ for (let i = 0; i < 5; i++) {
       <span>2000$</span>
     </div>
   );
+  images.push(cfgImg);
 }
 
 function toggleImageCarousel(imageCarousel, para, arrows) {
@@ -84,7 +85,6 @@ function Configuration({ img }) {
         voluptatum rem quae sunt a neque, aliquam, accusamus esse consectetur
         aliquid.
       </p>
-
       <img
         src={arrow}
         className="configuration__arrow-left"
