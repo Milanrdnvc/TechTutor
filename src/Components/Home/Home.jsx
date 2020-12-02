@@ -12,6 +12,7 @@ function Home() {
         <LandingPage
           title="TECHTUTOR"
           quote="Sastavljanje računara ne mora da bude komplikovano..."
+          home={true}
         />
         <GeneralInfo
           title={data.generalInfo.sitePurpose.title}

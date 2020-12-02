@@ -19,3 +19,16 @@
   --font-medium: 1rem;
   --font-small: 0.8rem;
 }
+
+@media (min-width: 768px) {
+  :root {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    font-size: 28px;
+    --font-extra-large: 4rem;
+  }
+}
