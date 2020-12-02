@@ -3,6 +3,7 @@ import Footer from './Footer';
 import Home from './Home/Home';
 import Desktops from './Desktops/Desktops';
 import Contact from './Contact/Contact';
+import CfgInfo from './SharedComponents/Configuration/CfgInfo/CfgInfo';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import '../CSS/App.css';
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/desktops" component={Desktops} />
           <Route path="/contact" component={Contact} />
+          <Route path="/test" component={CfgInfo} />
         </Switch>
         <Footer />
       </Router>
