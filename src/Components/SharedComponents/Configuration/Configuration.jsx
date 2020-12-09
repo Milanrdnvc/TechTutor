@@ -1,27 +1,9 @@
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { animatePara } from '../../../helpers';
 import test from '../../../Pictures/gejmerski2.png';
 import arrow from '../../../Pictures/arrow.png';
 import '../../../CSS/Configuration.css';
-
-const images = [];
-for (let i = 0; i < 5; i++) {
-  const cfgImg = (
-    <div
-      style={{
-        backgroundImage: `url(${test})`,
-        transform: `translateX(${i * 100}%)`,
-      }}
-      className="configuration__image"
-      key={i}
-      alt="configuration"
-      onClick={() => console.log(i)}
-    >
-      <span>2000$</span>
-    </div>
-  );
-  images.push(cfgImg);
-}
 
 function toggleImageCarousel(imageCarousel, para, arrows) {
   if (!para.classList.contains('para-hide')) {
@@ -61,11 +43,42 @@ function handleSlideLeft(imageCarousel, counter) {
   }
 }
 
-function Configuration({ img }) {
+function Configuration({ img, title, desc, cfgs }) {
+  console.log(cfgs);
   const para = useRef(null);
   const imageCarousel = useRef(null);
   const arrows = useRef([React.createRef(), React.createRef()]);
   const counter = [0];
+
+  const images = Object.values(cfgs)
+    .map(cfg => {
+      return { price: cfg.price, id: cfg.id };
+    })
+    .map(({ price, id }, i) => {
+      return (
+        <div
+          style={{
+            backgroundImage: `url(${test})`,
+            transform: `translateX(${i * 100}%)`,
+          }}
+          className="configuration__image"
+          key={id}
+          alt="configuration"
+        >
+          <Link
+            to={`desktops/${id}`}
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+            }}
+          />
+          <span>{price}</span>
+        </div>
+      );
+    });
 
   useEffect(() => {
     const handleAnimatePara = () => animatePara(para.current);
@@ -78,12 +91,9 @@ function Configuration({ img }) {
       className="configuration"
       style={{ backgroundImage: `url(${img.default})` }}
     >
-      <h2 className="configuration__title">Sample Title</h2>
+      <h2 className="configuration__title">{title}</h2>
       <p className="configuration__para" ref={para}>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
-        autem dicta dolor cum obcaecati tempora. Debitis eum, eligendi ab
-        voluptatum rem quae sunt a neque, aliquam, accusamus esse consectetur
-        aliquid.
+        {desc}
       </p>
       <img
         src={arrow}

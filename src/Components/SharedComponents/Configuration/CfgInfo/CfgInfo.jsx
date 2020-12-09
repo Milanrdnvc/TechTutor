@@ -2,12 +2,17 @@ import CfgDescription from './CfgDescription';
 import CfgTable from './CfgTable';
 import '../../../../CSS/CfgInfo.css';
 
-function CfgInfo() {
+function CfgInfo({ title, price, benchmark, components, desc }) {
   return (
     <div className="cfg-info-wrapper">
       <div className="cfg-info">
-        <CfgDescription />
-        <CfgTable />
+        <CfgDescription
+          title={title}
+          price={price}
+          benchmark={benchmark}
+          desc={desc}
+        />
+        <CfgTable components={components} />
       </div>
     </div>
   );

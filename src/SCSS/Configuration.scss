@@ -98,13 +98,20 @@
     &__image-carousel {
       justify-content: center;
       align-items: center;
+      transform: translateX(0) translateY(-50%) !important; // !importaint because of direct styling in JS
+    }
+
+    &__para {
+      max-width: 80%;
     }
 
     &__image {
       position: relative;
       width: 300px;
       height: 300px;
-      transform: translateX(0) !important;
+      transform: translateX(
+        0
+      ) !important; // !importaint because of direct styling in JS
       border-radius: 5px;
       transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out,
         box-shadow 0.2s ease-in-out;
