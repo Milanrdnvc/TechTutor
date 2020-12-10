@@ -43,8 +43,7 @@ function handleSlideLeft(imageCarousel, counter) {
   }
 }
 
-function Configuration({ img, title, desc, cfgs }) {
-  console.log(cfgs);
+function Configuration({ img, title, desc, cfgs, device }) {
   const para = useRef(null);
   const imageCarousel = useRef(null);
   const arrows = useRef([React.createRef(), React.createRef()]);
@@ -66,7 +65,7 @@ function Configuration({ img, title, desc, cfgs }) {
           alt="configuration"
         >
           <Link
-            to={`desktops/${id}`}
+            to={`/${device}/${id}`}
             style={{
               position: 'absolute',
               top: 0,

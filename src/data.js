@@ -1041,7 +1041,7 @@ export const data = {
           },
         },
         '550€': {
-          title: 'Laptop za produktinovst do 550€',
+          title: 'Laptop za produktivnost do 550€',
           desc:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas commodi, doloribus ipsam magni rem architecto explicabo vero accusamus delectus sit numquam quod nesciunt debitis natus, eaque consequatur reiciendis, enim quibusdam!',
           benchmark: 'http://www.google.com',

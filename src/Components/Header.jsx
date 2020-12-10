@@ -36,10 +36,10 @@ function Header() {
             <Link to="/desktops">Desktopovi</Link>
           </li>
           <li className="header__link">
-            <Link to="#">Laptopovi</Link>
+            <Link to="/laptops">Laptopovi</Link>
           </li>
           <li className="header__link">
-            <Link to="#">Telefoni</Link>
+            <Link to="/phones">Telefoni</Link>
           </li>
           <li className="header__link">
             <Link to="/contact">Kontakt</Link>
