@@ -1,6 +1,7 @@
 import '../../CSS/Contact.css';
 
 function Contact() {
+  window.scrollTo(0, 0);
   return (
     <div className="contact-wrapper">
       <div className="contact">

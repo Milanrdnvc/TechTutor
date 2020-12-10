@@ -6,6 +6,7 @@ import { data } from '../../data';
 import '../../CSS/Home.css';
 
 function Home() {
+  window.scrollTo(0, 0);
   return (
     <div className="home-wrapper">
       <main className="home">

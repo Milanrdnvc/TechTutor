@@ -1,12 +1,13 @@
 import LandingPage from '../SharedComponents/LandingPage';
 import Configuration from '../SharedComponents/Configuration/Configuration';
 import { data } from '../../data';
-import '../../CSS/Desktops.css';
+import '../../CSS/Devices.css';
 
 function Desktops() {
+  window.scrollTo(0, 0);
   return (
-    <div className="desktops-wrapper">
-      <main className="desktops">
+    <div className="devices-wrapper">
+      <main className="devices">
         <LandingPage
           title="DESKTOPOVI"
           quote="Želite da sastavite svoj novi računar? Došli ste na pravo mesto!"
