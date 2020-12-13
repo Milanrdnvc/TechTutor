@@ -14,6 +14,7 @@
     align-items: center;
     animation: animate-pointer 500ms ease-in-out infinite alternate;
     margin: 4rem 4rem 0 4rem;
+    cursor: pointer;
   }
 
   &__pointer-img {

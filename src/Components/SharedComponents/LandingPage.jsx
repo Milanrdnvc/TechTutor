@@ -1,5 +1,6 @@
 import pointer from '../../Pictures/pointer.png';
 import HomePageGif from '../../Pictures/home-page-gif.svg';
+import { pointerSmoothScroll } from '../../helpers';
 import '../../CSS/LandingPage.css';
 
 function LandingPage({ title, quote, home }) {
@@ -19,7 +20,14 @@ function LandingPage({ title, quote, home }) {
         <h1>{title}</h1>
         <h3>{quote}</h3>
       </div>
-      <div className="landing-page__pointer">
+      <div
+        className="landing-page__pointer"
+        onClick={pointerSmoothScroll}
+        onTouchEnd={e => {
+          e.preventDefault();
+          pointerSmoothScroll();
+        }}
+      >
         <h4 className="landing-page__pointer-text">Istraži</h4>
         <img
           src={pointer}
@@ -36,11 +44,23 @@ function LandingPage({ title, quote, home }) {
           <h3>{quote}</h3>
         </div>
         <div className="landing-page__gif-container">
-          <img className="landing-page__gif" src={HomePageGif} width="500px" />
+          <img
+            className="landing-page__gif"
+            src={HomePageGif}
+            width="500px"
+            alt="uredjaji"
+          />
           <div className="landing-page__slideshow"></div>
         </div>
       </div>
-      <div className="landing-page__pointer">
+      <div
+        className="landing-page__pointer"
+        onClick={pointerSmoothScroll}
+        onTouchEnd={e => {
+          e.preventDefault();
+          pointerSmoothScroll();
+        }}
+      >
         <h4 className="landing-page__pointer-text">Istraži</h4>
         <img
           src={pointer}

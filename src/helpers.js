@@ -9,3 +9,10 @@ export function animatePara(para) {
     para.classList.add('para-animate');
   }
 }
+
+export function pointerSmoothScroll() {
+  window.scroll({
+    top: window.innerHeight,
+    behavior: 'smooth',
+  });
+}

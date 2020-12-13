@@ -24,6 +24,7 @@ function CfgTable({ components }) {
             className="btn-primary"
             href={components.CPU.buyLink}
             target="_blank"
+            rel="noreferrer"
           >
             Kupi
           </a>
@@ -36,6 +37,7 @@ function CfgTable({ components }) {
             className="btn-primary"
             href={components.GPU.buyLink}
             target="_blank"
+            rel="noreferrer"
           >
             Kupi
           </a>
@@ -50,6 +52,7 @@ function CfgTable({ components }) {
             className="btn-primary"
             href={components.motherboard.buyLink}
             target="_blank"
+            rel="noreferrer"
           >
             Kupi
           </a>
@@ -62,6 +65,7 @@ function CfgTable({ components }) {
             className="btn-primary"
             href={components.RAM.buyLink}
             target="_blank"
+            rel="noreferrer"
           >
             Kupi
           </a>
@@ -74,6 +78,7 @@ function CfgTable({ components }) {
             className="btn-primary"
             href={components.SSD.buyLink}
             target="_blank"
+            rel="noreferrer"
           >
             Kupi
           </a>
@@ -86,6 +91,7 @@ function CfgTable({ components }) {
             className="btn-primary"
             href={components.HDD.buyLink}
             target="_blank"
+            rel="noreferrer"
           >
             Kupi
           </a>
@@ -98,6 +104,7 @@ function CfgTable({ components }) {
             className="btn-primary"
             href={components.PSU.buyLink}
             target="_blank"
+            rel="noreferrer"
           >
             Kupi
           </a>
@@ -110,6 +117,7 @@ function CfgTable({ components }) {
             className="btn-primary"
             href={components.case.buyLink}
             target="_blank"
+            rel="noreferrer"
           >
             Kupi
           </a>
