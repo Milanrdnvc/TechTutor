@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { animatePara } from '../../../helpers';
-import test from '../../../Pictures/gejmerski2.png';
 import arrow from '../../../Pictures/arrow.png';
 import '../../../CSS/Configuration.css';
 
@@ -57,7 +56,9 @@ function Configuration({ img, title, desc, cfgs, device }) {
       return (
         <div
           style={{
-            backgroundImage: `url(${test})`,
+            backgroundImage: `url(${
+              require(`../../../Pictures/${device}${id}.png`).default
+            })`,
             transform: `translateX(${i * 100}%)`,
           }}
           className="configuration__image"
